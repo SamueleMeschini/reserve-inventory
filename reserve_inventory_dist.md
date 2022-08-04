@@ -4,7 +4,7 @@ The tritium inventory in a fusion reactor has a strong impact on tritium self-su
 One of the major goals of tritium fuel cycle modeling and design is to minimize the total tritium inventory in the reactor (when we speak about _reactor_, we mean the tokamak itself and all the systems that deal with tritium, such as the _tritium plant_ or the _tritium carrier loop_). 
 
 ### 1. Start-up inventory
-We need tritium to start reactor operations. The initial amount of tritium required to start a fusion reactor is called start-up inventory, and it is stored in the _storage system_. Unluckily, the start-up inventory cannot be computed _a priori_ because it depends on the tritium breeding timescale, which is a non-trivial function of the blanket and extraction system dynamics. Let's suppose that we know that timescale, and let's call the time at which the tritium bred becomes available for fueling **inflection time** ($t_{infl}$) (Figure 1). 
+We need tritium to start reactor operations. The initial amount of tritium required to start a fusion reactor is called start-up inventory, and it is stored in the _storage system_. Unluckily, the start-up inventory cannot be computed _a priori_ because it depends on the tritium breeding timescale, which is a non-trivial function of the blanket and extraction system dynamics. Let's suppose that we know that timescale, and let's call the time at which the tritium bred becomes available for fueling **inflection time** ( $t_{infl}$) (Figure 1). 
 Since our reactor is designed to have $TBR > 1$, the tritium bred is larger than the tritium burnt, and once we cross the inflection time, our tritium inventory starts rocketing!
 
 ![Storage inventory as a function of time](img/inflection_point.png)*Figure 1 - Storage inventory evolution showing the inflection time*
@@ -35,7 +35,7 @@ The main point here is to understand if a reserve inventory is needed by quantif
 
 
  #### 3.1 Find a suitable metric for the risk assessment
-The presence of a reserve inventory impacts tritium self-sufficiency (higher required TBR), while its absence has no relevant drawbacks apart from the economic losses due to the reactor shutdown. It seems therefore natural to use the economic losses as a measure of the risk associated to the absence of a reserve inventory. If the reactor is shut down for a time equal to $t_{out}$, the economic losses ($C_{losses}$) associated to this event are:
+The presence of a reserve inventory impacts tritium self-sufficiency (higher required TBR), while its absence has no relevant drawbacks apart from the economic losses due to the reactor shutdown. It seems therefore natural to use the economic losses as a measure of the risk associated to the absence of a reserve inventory. If the reactor is shut down for a time equal to $t_{out}$, the economic losses ( $C_{losses}$) associated to this event are:
 
 
 
@@ -405,7 +405,7 @@ reactor.run()
 
 We can assess the economic losses for each simulation with the following strategy:
 
-- If the failure occurs at $t < t_{infl}$, the reactor is shut down and we compute the economic loss. As a matter of fact, the start-up inventory is minimized (i.e., the amount of tritium is barely sufficient to fuel the reactor until the inflection time is reached). Any additional demand of tritium would not allow to reach the inflection point, so we must shut down the reactor, fix the failure and start again the operations. Note that the tritium losses due to radioactive decay during the downtime are negligibles for downtimes of the order of days ($T_{lost}\approx 0.2 g$)
+- If the failure occurs at $t < t_{infl}$, the reactor is shut down and we compute the economic loss. As a matter of fact, the start-up inventory is minimized (i.e., the amount of tritium is barely sufficient to fuel the reactor until the inflection time is reached). Any additional demand of tritium would not allow to reach the inflection point, so we must shut down the reactor, fix the failure and start again the operations. Note that the tritium losses due to radioactive decay during the downtime are negligibles for downtimes of the order of days ( $T_{lost}\approx 0.2 g$)
 - If the failure occurs at $t > t_{infl}$, we can use a fraction of the stored inventory to sustain the operations, provided that $I_{storage} > \frac{\dot{T}} {f_b\eta_f} q t_{out}$. If the amount of tritium in the storage inventory is not enough, the reactor is shut down and we incur in economic losses.
 
 The economic losses are summed up at the end of the simulation, and their value can be compared to the cost of the reserve invenotry
