@@ -567,7 +567,7 @@ for n in range(len(AF)):
 
 In this more realistic case, the probability to incur in a certain economic loss is always higher for the case with reserve inventory (including the initial cost of $I_{res}$). 
 
-To answer the initial question _Do we really need a reserve inventory?_, it seems that for this realistic (but exhaustive) case, a reserve inventory results in an oversizing of the storage system and an unnecessary upfront cost. 
+To answer the initial question _Do we really need a reserve inventory?_, it seems that for this realistic (but not exhaustive) case, a reserve inventory results in an oversizing of the storage system and an unnecessary upfront cost. 
 
 ### Final considerations
 There are some final considerations to be made, which will drive future analysis:
