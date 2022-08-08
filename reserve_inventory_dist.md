@@ -178,7 +178,7 @@ class Reactor():
                 print("Simulation number {}".format(n))
             t = 0 
             idx = 0
-            self.outage_times = self.outage_matrix[n] # This line may cause trouble for a redundant definition of self. outage_times    <--------------------------- 
+            self.outage_times = self.outage_matrix[n] 
             self.computeFailureRate()
             self.failureTimes()
             self.orderFailureTimes()
@@ -188,9 +188,7 @@ class Reactor():
                     print("Failure at {:.1f} days".format(t/3600/24))
                 # if self.outage_times[idx] < self.reserve_time:
                 self.processing.findReserveInventory(t)
-                self.current_reserves = self.processing.reserve_inventory #In principio uno potrebbe usare le riserve correnti come inventario di riserva. Però questo non farebbe altro che spostare in avanti il doubling time,
-                # quindi nel pratico è come non usare le riserve correnti ed accettare la perdita di denaro
-                
+                self.current_reserves = self.processing.reserve_inventory 
                 if self.current_reserves <= (N_dot/f_b/eta_f*q* self.outage_times[idx]):                                          
                     self.cost[n] += (c_el *  P_el/1e3 * self.outage_times[idx]/3600 + c_T * decay_fraction * self.current_reserves * self.outage_times[idx])           
                 else:
