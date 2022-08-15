@@ -1,3 +1,11 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+</script>
+
+## Disclaimer
+The present pdf was created from the notebook described [here](https://github.com/SamueleMeschini/reserve-inventory/blob/main/reserve_inventory_dist.md). To get the jupyter notebook email me (sam_mesc@mit.edu or samuele.meschini@polito.it). The notebook has been developed for didactical purposes, hope you don't mind the very informal narrative style! 
+
 ## Reserve inventory in fusion reactors: do we really need it?
 
 The tritium inventory in a fusion reactor has a strong impact on tritium self-sufficiency and reactor safety. Furthermore, tritium is extremely costly (30 M$/kg). 
@@ -31,7 +39,7 @@ If you have read the draft on the fuel cycle analysis of ARC, you probably know 
 The main point here is to understand if a reserve inventory is needed by quantifying the risk of not having it. Risk informed approaches are gaining importance in the safety field, thanks to their capability to provide a clear view on the risk (thus consequences) of certain events or actions. The goal of this notebook is to explain how we can assess this risk and the benefits of such an approach.
 
 
-![Startup inventory for different reactor design](img/DT_startup_reserve.png)*Figure 3 - Storage inventory evolution including a reserve inventory at start-up*
+![Startup inventory for different reactor design](img/DT_startup_reserve.png)*Figure 3 - Storage inventory with and without reserve inventory, for different reactor desings (ARC and STEP)*
 
 
  #### 3.1 Find a suitable metric for the risk assessment
@@ -519,15 +527,10 @@ for n in range(len(AF)):
         dx = bin[1] - bin[0]
         dx_2 = bin_res[1] - bin_res[0]
         fig, ax = plt.subplots(ncols=1)
-        # ax1 = ax.twinx()
         ax.hist(reactors[n].cost,bin, density=True, alpha=0.5)   
         ax.hist(reactors_reserve[n].cost, bin_res, density=True, alpha=0.5)
         ax.set_xlabel('Economic losses ($)', fontsize=16)
         ax.set_ylabel('Probability', fontsize=16)
-        # ax1.plot(bin[:-1],total_counts*dx, 'r')
-        # ax1.plot(bin_res[:-1], total_counts_res*dx_2, 'k')
-        # ax1.set_ylabel('Cumulative probability', fontsize=16)
-        # ax1.axvline(C_res, ls='--', color='k')
         ax.legend(['w/o reserve inventory', 'with reserve inventory'])
         ax.set_title('AF = {}'.format(AF[n]), fontsize=16)
 
