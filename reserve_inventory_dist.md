@@ -1,7 +1,3 @@
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
-</script>
 
 ## Disclaimer
 The present pdf was created from the notebook described [here](https://github.com/SamueleMeschini/reserve-inventory/blob/main/reserve_inventory_dist.md). To get the jupyter notebook email me (sam_mesc@mit.edu or samuele.meschini@polito.it). The notebook has been developed for didactical purposes, hope you don't mind the very informal narrative style! 
